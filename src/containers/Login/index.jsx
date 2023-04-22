@@ -5,14 +5,12 @@ import {
   Grid,
   Paper,
   InputBase,
-  Divider,
-  Link,
   Box,
 } from "@mui/material";
 import { Helmet } from "react-helmet";
 import Logo from "../../components/Logo";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-import { FaUserAlt } from "react-icons/fa";
+import { FaUserAlt, FaKey } from "react-icons/fa";
 
 const Login = () => {
   return (
@@ -58,7 +56,7 @@ const Login = () => {
                 </Button>
               </Grid>
             </Grid>
-            <CardContent>
+            <CardContent sx={{borderTop: "2px solid #eee"}}>
               <p>اگر در آپارات حساب کاربری دارید وارد شوید :</p>
               <Grid spacing={2} container alignItems={'center'}>
                 <Grid item xs={12} sm={9}>
@@ -78,13 +76,24 @@ const Login = () => {
                         sx={{ ml: 1, flex: 1 }}
                         placeholder="ایمیل یا موبایل را وارد کنید"
                       />
-                      <Divider
-                        sx={{ height: 15}}
-                        orientation="vertical"
+                    </Paper>
+
+                    <Paper
+                      component="form"
+                      sx={{
+                        display: "flex",
+                        minWidth: '100%',
+                        alignItems: "center",
+                        marginTop: '10px'
+                      }}
+                    >
+                      <FaKey
+                        style={{ color: "#aaa", marginInline: "7px" }}
                       />
-                      <Link style={{ cursor: 'pointer' }} padding={'2px 6px'} underline="hover" color="#1975d2">
-                        فراموش کردید
-                      </Link>
+                      <InputBase
+                        sx={{ ml: 1, flex: 1 }}
+                        placeholder="گذرواژه خود را وارد کنید"
+                      />
                     </Paper>
                   </Box>
                 </Grid>
