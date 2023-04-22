@@ -110,7 +110,7 @@ const Login = () => {
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm={3}>
-                  <Button onClick={() => console.log(authService.Login(username, password, '/login')) } variant="contained" size="small" fullWidth>ورود</Button>
+                  <Button onClick={async () => {const result = await authService.Login(username, password, '/login'); console.log(result)} } variant="contained" size="small" fullWidth>ورود</Button>
                 </Grid>
               </Grid>
             </CardContent>

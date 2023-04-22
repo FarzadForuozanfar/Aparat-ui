@@ -14,8 +14,7 @@ class AuthService {
     
     try{
       const response = await request.post(endpoint, data);
-      console.log(response)
-      return response;
+      return response.data;
     }
     catch(error){
       console.log(error);
