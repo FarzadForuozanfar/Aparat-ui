@@ -7,7 +7,6 @@ import {
   InputBase,
   Divider,
   Link,
-  FormControl,
   Box,
 } from "@mui/material";
 import { Helmet } from "react-helmet";
@@ -27,7 +26,7 @@ const Login = () => {
       <Helmet>
         <title>صفحه ورود آپارات</title>
       </Helmet>
-      <Grid item xs={12} sm={8} md={6} lg={5}>
+      <Grid item xs={12} sm={8} md={6} lg={4}>
         <Grid item xs={12}>
           <Logo />
         </Grid>
@@ -45,10 +44,10 @@ const Login = () => {
         <Grid item xs={12} marginTop={2}>
           <Card>
             <Grid paddingX={"16px"} paddingY={"20px"} container alignItems={'center'}>
-              <Grid item xs={12} md={8} marginBottom={2}>
+              <Grid item xs={12} sm={8} marginBottom={2}>
                 <span>حساب کاربری ندارید ؟</span>
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid item xs={12} sm={4}>
                 <Button
                   size="small"
                   color="primary"
@@ -62,7 +61,7 @@ const Login = () => {
             <CardContent>
               <p>اگر در آپارات حساب کاربری دارید وارد شوید :</p>
               <Grid spacing={2} container alignItems={'center'}>
-                <Grid item xs={12} md={9}>
+                <Grid item xs={12} sm={9}>
                   <Box >
                     <Paper
                       component="form"
@@ -89,7 +88,7 @@ const Login = () => {
                     </Paper>
                   </Box>
                 </Grid>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} sm={3}>
                   <Button variant="contained" size="small" fullWidth>ورود</Button>
                 </Grid>
               </Grid>

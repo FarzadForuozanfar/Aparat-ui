@@ -12,9 +12,10 @@ const theme = createTheme({
       text:'#fff'
     }
   },
-  status: {
-    danger: 'orange',
-  },
+  typography:{
+    fontFamily:
+      'IRANSans, Roboto, Helvetica, Arial, sans-serif'
+  }
 });
 
 export default theme;
