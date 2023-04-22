@@ -11,8 +11,14 @@ import { Helmet } from "react-helmet";
 import Logo from "../../components/Logo";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { FaUserAlt, FaKey } from "react-icons/fa";
+import { useState } from "react";
+import auth_service from "../../services/auth-service";
 
 const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
+  const authService = auth_service();
   return (
     <Grid
       container
@@ -75,6 +81,9 @@ const Login = () => {
                       <InputBase
                         sx={{ ml: 1, flex: 1 }}
                         placeholder="ایمیل یا موبایل را وارد کنید"
+                        onChange={(e) => {
+                          setUsername(e.target.value.trim())
+                        }}
                       />
                     </Paper>
 
@@ -93,12 +102,15 @@ const Login = () => {
                       <InputBase
                         sx={{ ml: 1, flex: 1 }}
                         placeholder="گذرواژه خود را وارد کنید"
+                        onChange={(e) => {
+                          setPassword(e.target.value.trim())
+                        }}
                       />
                     </Paper>
                   </Box>
                 </Grid>
                 <Grid item xs={12} sm={3}>
-                  <Button variant="contained" size="small" fullWidth>ورود</Button>
+                  <Button onClick={() => console.log(authService.Login(username, password, '/login')) } variant="contained" size="small" fullWidth>ورود</Button>
                 </Grid>
               </Grid>
             </CardContent>
