@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+.alert {
+  width: 100%;
+  display: flex;
+  position: relative;
+  border-radius: 5px 5px 0px 0px;
+  color: rgb(170, 63, 64);
+}
+
+.alert div{
+  display: flex;
+  align-items: center;
+}
+
+.alert div svg{
+  font-size: 26px;
+  margin: 5px;
+}
+
+.close {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  opacity: 0.5;
+  border-radius: 50%;
+  left: 15px;
+  top: 15px;
+  text-align: center;
+  font-size: 1.8em;
+  padding: 0;
+  cursor: pointer;
+}
+
+.info-alert {
+  background-color: #ebebeb;
+  border-left: 5px solid rgb(229, 246, 253);
+}
+.info-alert .close {
+  border-color: rgb(229, 246, 253);
+  color: rgb(229, 246, 253);
+}
+
+.success-alert {
+  background-color: #a8f0c6;
+  border-left: 5px solid #178344;
+}
+.success-alert .close {
+  border-color: #178344;
+  color: #178344;
+}
+
+.error-alert {
+  background-color: #ffd6d4;
+  border-left: 5px solid #df0f50;
+}
+.error-alert .close {
+  border-color: #df0f50;
+  color: #df0f50;
+}
+
+.warning-alert {
+  background-color: #ffd48a;
+  border-left: 5px solid #8a5700;
+}
+.warning-alert .close {
+  border-color: #8a5700;
+  color: #8a5700;
+}

@@ -14,7 +14,7 @@ request.interceptors.request.use(
     try {
       const auth = JSON.parse(localStorage.getItem("auth"));
 
-      if (auth && config.url != "/login")
+      if (auth && config.url !== "/login")
         config.headers[
           "Authorization"
         ] = `${auth.token_type} ${auth.access_token}`;

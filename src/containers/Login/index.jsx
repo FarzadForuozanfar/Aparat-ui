@@ -5,7 +5,6 @@ import {
   Grid,
   Paper,
   InputBase,
-  Alert,
   Box,
 } from "@mui/material";
 import { Helmet } from "react-helmet";
@@ -14,6 +13,7 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 import { FaUserAlt, FaKey } from "react-icons/fa";
 import { useState } from "react";
 import auth_service from "../../services/auth-service";
+import Alert from '../../components/Alert';
 
 const Login = () => {
   const [username, setUsername] = useState("user0@aparat.me");
@@ -51,7 +51,8 @@ const Login = () => {
           <Card>
             {errorMessage && (
               <Alert
-                severity="error"
+                type="error"
+                message = {errorMessage}
                 onClose={() => {
                   setErrorMessage(null);
                 }}
