@@ -5,6 +5,7 @@ import {
   Grid,
   Paper,
   InputBase,
+  Alert,
   Box,
 } from "@mui/material";
 import { Helmet } from "react-helmet";
@@ -15,8 +16,9 @@ import { useState } from "react";
 import auth_service from "../../services/auth-service";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("user0@aparat.me");
+  const [password, setPassword] = useState("123456");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const authService = auth_service();
   return (
@@ -47,6 +49,16 @@ const Login = () => {
         </Grid>
         <Grid item xs={12} marginTop={2}>
           <Card>
+            {errorMessage && (
+              <Alert
+                severity="error"
+                onClose={() => {
+                  setErrorMessage(null);
+                }}
+              >
+                {errorMessage}
+              </Alert>
+            )}
             <Grid
               paddingX={"16px"}
               paddingY={"20px"}
@@ -85,6 +97,7 @@ const Login = () => {
                       />
                       <InputBase
                         sx={{ ml: 1, flex: 1 }}
+                        defaultValue={username}
                         placeholder="ایمیل یا موبایل را وارد کنید"
                         onChange={(e) => {
                           setUsername(e.target.value.trim());
@@ -104,6 +117,7 @@ const Login = () => {
                       <FaKey style={{ color: "#aaa", marginInline: "7px" }} />
                       <InputBase
                         sx={{ ml: 1, flex: 1 }}
+                        defaultValue={password}
                         placeholder="گذرواژه خود را وارد کنید"
                         onChange={(e) => {
                           setPassword(e.target.value.trim());
@@ -115,12 +129,14 @@ const Login = () => {
                 <Grid item xs={12} sm={3}>
                   <Button
                     onClick={async () => {
-                      const result = await authService.Login(
+                      const response = await authService.Login(
                         username,
                         password,
                         "/login"
                       );
-                      console.log(result);
+                      console.log(response);
+                      if (response.error) {setErrorMessage("ورود نامعتبر")}
+                      else if (response.result) {setErrorMessage(null)}
                     }}
                     variant="contained"
                     size="small"

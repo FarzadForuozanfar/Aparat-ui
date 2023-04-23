@@ -4,6 +4,7 @@ import authData from '../config/auth';
 class AuthService {
 
   async Login(username, password, endpoint){
+    let result = null, error = null;    
     const data = {
         username: username,
         password: password,
@@ -14,11 +15,18 @@ class AuthService {
     
     try{
       const response = await request.post(endpoint, data);
-      return response.data;
+      result = response.data;
     }
-    catch(error){
-      console.log(error);
+    catch(ex){
+      if (ex.response && ex.response.status === 400)
+      {
+        console.log("login error");
+        error = true;
+      }
+      else
+        console.log("any");
     }
+    return { result, error }
   }
 }
 

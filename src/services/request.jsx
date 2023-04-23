@@ -9,4 +9,21 @@ const request = axios.create({
   },
 });
 
+request.interceptors.request.use(
+  (config) => {
+    try {
+      const auth = JSON.parse(localStorage.getItem("auth"));
+
+      if (auth && config.url != "/login")
+        config.headers[
+          "Authorization"
+        ] = `${auth.token_type} ${auth.access_token}`;
+
+      return config;
+    } catch (error) {}
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 export default request;
