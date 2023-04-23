@@ -1,5 +1,6 @@
 import request from "../services/request";
 import authData from '../config/auth';
+import {setAuth} from "../utilities/auth";
 
 class AuthService {
 
@@ -15,6 +16,7 @@ class AuthService {
     
     try{
       const response = await request.post(endpoint, data);
+      setAuth(response.data);
       result = response.data;
     }
     catch(ex){

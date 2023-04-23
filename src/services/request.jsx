@@ -1,4 +1,5 @@
 import axios from "axios";
+import {getAuth} from "../utilities/auth"
 
 const request = axios.create({
   baseURL: "http://127.0.0.1:8000/api",
@@ -12,12 +13,11 @@ const request = axios.create({
 request.interceptors.request.use(
   (config) => {
     try {
-      const auth = JSON.parse(localStorage.getItem("auth"));
+      const auth = getAuth();
 
-      if (auth && config.url !== "/login")
-        config.headers[
-          "Authorization"
-        ] = `${auth.token_type} ${auth.access_token}`;
+      if (auth && config.url !== '/login') {
+        config.headers['Authorization'] = `${auth.token_type} ${auth.access_token}`;
+      }
 
       return config;
     } catch (error) {}
