@@ -14,11 +14,13 @@ import { FaUserAlt, FaKey } from "react-icons/fa";
 import { useState } from "react";
 import auth_service from "../../services/auth-service";
 import Alert from '../../components/Alert';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState("user0@aparat.me");
   const [password, setPassword] = useState("123456");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   const authService = auth_service();
   return (
@@ -135,9 +137,11 @@ const Login = () => {
                         password,
                         "/login"
                       );
-                      console.log(response);
                       if (response.error) {setErrorMessage("ورود نامعتبر")}
-                      else if (response.result) {setErrorMessage(null)}
+                      else if (response.result) {
+                        setErrorMessage(null)
+                        navigate('/');
+                      }
                     }}
                     variant="contained"
                     size="small"
