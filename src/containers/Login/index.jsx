@@ -140,7 +140,7 @@ const Login = () => {
                       if (response.error) {setErrorMessage("ورود نامعتبر")}
                       else if (response.result) {
                         setErrorMessage(null)
-                        navigate('/');
+                        navigate('/dashboard');
                       }
                     }}
                     variant="contained"
