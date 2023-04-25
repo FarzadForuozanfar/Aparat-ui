@@ -15,6 +15,7 @@ import { useState } from "react";
 import auth_service from "../../services/auth-service";
 import Alert from '../../components/Alert';
 import { useNavigate } from 'react-router-dom';
+import langData from '../../lang/Login/lang-fa.json';
 
 const Login = () => {
   const [username, setUsername] = useState("user0@aparat.me");
@@ -32,7 +33,7 @@ const Login = () => {
       alignItems="center"
     >
       <Helmet>
-        <title>صفحه ورود آپارات</title>
+        <title>{ langData.title }</title>
       </Helmet>
       <Grid item xs={12} sm={8} md={6} lg={4}>
         <Grid item xs={12}>
@@ -46,7 +47,7 @@ const Login = () => {
             size="small"
             startIcon={<HiOutlineArrowNarrowRight style={{ marginLeft: 5 }} />}
           >
-            <span style={{ marginRight: 2 }}>بازگشت</span>
+            <span style={{ marginRight: 2 }}>{ langData.return }</span>
           </Button>
         </Grid>
         <Grid item xs={12} marginTop={2}>
@@ -69,7 +70,7 @@ const Login = () => {
               alignItems={"center"}
             >
               <Grid item xs={12} sm={8} marginBottom={2}>
-                <span>حساب کاربری ندارید ؟</span>
+                <span> {langData.haventAccount} </span>
               </Grid>
               <Grid item xs={12} sm={4}>
                 <Button
@@ -78,12 +79,12 @@ const Login = () => {
                   variant="contained"
                   fullWidth
                 >
-                  ایجاد حساب کاربری
+                {langData.createAccount}
                 </Button>
               </Grid>
             </Grid>
             <CardContent sx={{ borderTop: "2px solid #eee" }}>
-              <p>اگر در آپارات حساب کاربری دارید وارد شوید :</p>
+              <p> {langData.signInWithAccount} </p>
               <Grid spacing={2} container alignItems={"center"}>
                 <Grid item xs={12} sm={9}>
                   <Box>
@@ -101,7 +102,7 @@ const Login = () => {
                       <InputBase
                         sx={{ ml: 1, flex: 1 }}
                         defaultValue={username}
-                        placeholder="ایمیل یا موبایل را وارد کنید"
+                        placeholder={langData.enterUsername}
                         onChange={(e) => {
                           setUsername(e.target.value.trim());
                         }}
@@ -121,7 +122,7 @@ const Login = () => {
                       <InputBase
                         sx={{ ml: 1, flex: 1 }}
                         defaultValue={password}
-                        placeholder="گذرواژه خود را وارد کنید"
+                        placeholder={langData.EnterPass}
                         onChange={(e) => {
                           setPassword(e.target.value.trim());
                         }}
@@ -137,7 +138,7 @@ const Login = () => {
                         password,
                         "/login"
                       );
-                      if (response.error) {setErrorMessage("ورود نامعتبر")}
+                      if (response.error) {setErrorMessage(langData.loginError)}
                       else if (response.result) {
                         setErrorMessage(null)
                         navigate('/dashboard');
@@ -147,7 +148,7 @@ const Login = () => {
                     size="small"
                     fullWidth
                   >
-                    ورود
+                    {langData.login}
                   </Button>
                 </Grid>
               </Grid>
