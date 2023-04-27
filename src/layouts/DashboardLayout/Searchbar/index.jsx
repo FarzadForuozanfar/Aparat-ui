@@ -15,7 +15,7 @@ const StyledWrapper = styled.div`
   background: #f6f6f6;
   color: #6f7285;
   min-width: 150px;
-  padding: 2px;
+  padding: 4px;
   position: relative;
   transition: all 500ms ease;
   max-width: 600px;
@@ -43,18 +43,23 @@ const StyledWrapper = styled.div`
     top: 9px;
     font-size: 20px;
     cursor: pointer;
-    color: #8e3e6d !important;
+    color: #6f7285 !important;
   }
 
   & button {
     position: absolute;
-    left: 2px;
-    top: 2px;
+    left: 5px;
+    top: 4px;
   }
 
   & button:hover .MuiSvgIcon-root,
   & .clearIcon:hover {
     color: #05a3e8 !important;
+    background-color: none !important;
+  }
+
+  & .clearIcon:hover{
+    color: #df0f50 !important;
   }
 `;
 
