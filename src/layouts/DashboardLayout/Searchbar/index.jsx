@@ -73,7 +73,7 @@ function SearchBar() {
         type="text"
         onFocus={() => setActive(true)}
         onBlur={() => setActive(false)}
-        onInput={e => setsearchText(e.target.value.trim())}
+        onChange={e => setsearchText(e.target.value.trim())}
         value={searchText}
         maxLength={70}
         placeholder="جستجوی ویدیو ها و کانال ها..."

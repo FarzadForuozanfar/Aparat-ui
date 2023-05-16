@@ -5,10 +5,13 @@ import UserMenu from "./../UserMenu";
 import NotificationMenu from "./../NotificationMenu";
 import AddVideoMenu from "./../AddVideoMenu";
 import SearchBar from "./../Searchbar";
+import SidebarDrawer from '../SidebarDrawer'
 
 const StyledWrapper = styled.div`
   flexgrow: 1;
   color: #6f7285;
+  position: relative;
+  z-index: 1;
 
   & .MuiAppBar-root {
     background: #fff;
@@ -74,7 +77,7 @@ const Navbar = () => {
         <Toolbar variant="dense">
           <Grid container spacing={2}>
             <Grid item xs className="leftItems">
-              <span>BTN</span>
+              <SidebarDrawer/>
             </Grid>
             <Grid  item xs className="searchBarWrapper">
               <SearchBar />
