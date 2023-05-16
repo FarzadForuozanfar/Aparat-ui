@@ -8,7 +8,6 @@ const StyledDashboardWrapper = styled.div`
   background: #fefefe;
 
   & .sidebarWrapper {
-    min-height: 100vh;
     z-index: 0;
   }
 `;

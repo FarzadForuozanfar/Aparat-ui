@@ -14,7 +14,8 @@ const theme = createTheme({
   },
   typography:{
     fontFamily:
-      'IRANSans, Roboto, Helvetica, Arial, sans-serif'
+      'IRANSans, Roboto, Helvetica, Arial, sans-serif',
+    fontSize : 12
   }
 });
 
