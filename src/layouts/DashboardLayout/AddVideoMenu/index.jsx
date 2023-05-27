@@ -4,19 +4,18 @@
  *
  */
 
-import React from 'react';
-import { IconButton } from '@mui/material';
-import { Add as AddIcon } from '@mui/icons-material';
+import React from "react";
+import { IconButton } from "@mui/material";
+import { Add as AddIcon } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 function AddVideoMenu() {
   return (
-    <IconButton
-      aria-label="Show 17 new notifications"
-      color="inherit"
-      size="small"
-    >
-      <AddIcon />
-    </IconButton>
+    <Link to={"/upload"}>
+      <IconButton color="inherit" size="small">
+        <AddIcon />
+      </IconButton>
+    </Link>
   );
 }
 
