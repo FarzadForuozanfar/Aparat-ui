@@ -3,7 +3,7 @@ import Layout from "../../layouts/DashboardLayout";
 import { Grid, Typography, Button } from "@mui/material";
 import styled from "styled-components";
 // import { UploadFile as UploadIcon } from "@mui/icons-material";
-// import { FileDrop } from "react-file-drop";
+import { FileDrop } from "react-file-drop";
 import UploadLogo from "../../assets/images/upload-light.svg";
 
 const UploadWrapper = styled(Grid)`
@@ -54,14 +54,21 @@ export function UploadPage() {
 
       <UploadWrapper container>
         <Grid item xs={12}>
-          <div className="fileDropWrapper">
+          <FileDrop
+            onFrameDragEnter={(event) => console.log('onFrameDragEnter', event)}
+            onFrameDragLeave={(event) => console.log('onFrameDragLeave', event)}
+            onFrameDrop={(event) => console.log('onFrameDrop', event)}
+            onDragOver={(event) => console.log('onDragOver', event)}
+            onDragLeave={(event) => console.log('onDragLeave', event)}
+            onDrop={(files, event) => console.log('onDrop!', files, event)}
+            className="fileDropWrapper">
             <div className="fileDrop">
               <img src={UploadLogo} alt="aparat|upload" />
               <Typography variant="h5">بارگذاری ویدیو</Typography>
               <Typography variant="h6">فایل های خود را اینجا بکشید و یا فایل خود را با کلیک انتخاب کنید</Typography>
               <Button variant="contained">انتخاب ویدیو</Button>
             </div>
-          </div>
+          </FileDrop>
         </Grid>
       </UploadWrapper>
     </Layout>
