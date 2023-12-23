@@ -1,10 +1,12 @@
 import { Helmet } from "react-helmet";
 import Layout from "../../layouts/DashboardLayout";
-import { Grid, Typography, Button } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import styled from "styled-components";
-// import { UploadFile as UploadIcon } from "@mui/icons-material";
-import { FileDrop } from "react-file-drop";
-import UploadLogo from "../../assets/images/upload-light.svg";
+import { useState } from "react";
+import { memo } from "react";
+import UploadForm from './UploadForm';
+import FileUploadProgress from './FileUploadProgress';
+import FileUploadInfo from './FileUploadInfo';
 
 const UploadWrapper = styled(Grid)`
   max-width: 800px;
@@ -33,7 +35,8 @@ const UploadWrapper = styled(Grid)`
   & h6 {
     font-size: 13px;
     color: #999 !important;
-    margin: 20px 0px;
+    margin: 20px import { UploadPage } from './index';
+0px;
   }
 
   & button {
@@ -42,40 +45,36 @@ const UploadWrapper = styled(Grid)`
     font-size: 17px;
     padding: 10px 20px;
   }
+
+  & [type=file]{
+    display:none;
+  }
 `;
 
 export function UploadPage() {
+  const [videoId, setVideoId] = useState(null);
+
   return (
     <Layout uploadPage={true} showSidebar={false}>
       <Helmet>
-        <title>بارگذاری ویدیو</title>
+        <title>آپارات | بارگذاری ویدیو</title>
         <meta name="description" content="بارگذاری ویدیو" />
       </Helmet>
 
       <UploadWrapper container>
         <Grid item xs={12}>
-          <FileDrop
-            onFrameDragEnter={(event) => console.log("onFrameDragEnter", event)}
-            onFrameDragLeave={(event) => console.log("onFrameDragLeave", event)}
-            onFrameDrop={(event) => console.log("onFrameDrop", event)}
-            onDragOver={(event) => console.log("onDragOver", event)}
-            onDragLeave={(event) => console.log("onDragLeave", event)}
-            onDrop={(files, event) => console.log("onDrop!", files, event)}
-            className="fileDropWrapper"
-          >
-            <div className="fileDrop">
-              <img src={UploadLogo} alt="aparat|upload" />
-              <Typography variant="h5">بارگذاری ویدیو</Typography>
-              <Typography variant="h6">
-                فایل های خود را اینجا بکشید و یا فایل خود را با کلیک انتخاب کنید
-              </Typography>
-              <Button variant="contained">انتخاب ویدیو</Button>
-            </div>
-          </FileDrop>
+          {!videoId && <UploadForm setVideoId={setVideoId}/>}
         </Grid>
+        {videoId && <Typography variant="body1">ویدئو با موفقیت بارگذاری شد</Typography>}
+        {(1) && (
+          <Grid item xs={12} className="videoUploadInfoWrapper">
+            <FileUploadProgress />
+            <FileUploadInfo />
+          </Grid>
+        )}
       </UploadWrapper>
     </Layout>
   );
 }
 
-export default UploadPage;
+export default memo(UploadPage);

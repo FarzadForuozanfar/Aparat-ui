@@ -35,7 +35,7 @@ const DashboardLayout = ({ children, showSidebar = true, uploadPage = false }) =
           </>
         )}
         {!showSidebar && (
-          <Grid xs={12} md={12}item className={classname}>
+          <Grid xs={12} md={12} item className={classname}>
             {children}
           </Grid>
         )}
